@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Peludinhos da UFPA</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+</head>
+<body>
+ 
+  <nav class="light-blue lighten-2" role="navigation" style="height: 70px">
+    <div class="nav-wrapper container">
+  <a href="index.html"><img src="static/img/peludinhoLogo2.png" alt="" class="circle responsive- brand-logo center"></a>
+          <ul class="right hide-on-med-and-down">
+        <li><a href="adotePagina.html">Adote</a></li>
+        <li><a href="DoePagina.html">Doe</a></li>
+        <li><a href="ContatoPagina.html">Contato</a></li>
+        
+      </ul>
+  
+      <ul id="nav-mobile" class="side-nav">
+       
+        <li><a href="adotePagina.html">Adote</a></li>
+        <li><a href="DoePagina.html">Doe</a></li>
+        <li><a href="ContatoPagina.html">Contato</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <br></br>
+    </div>
+  </nav>
+  <div class="section no-pad-bot " id="index-banner"  style="background-color: #fff3e0">
+
+
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Nome" id="nome" type="text" class="validate">
+          <label for="nome">Nome</label>
+        </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="telefone" type="text" class="validate">
+          <label for="password">Telefone</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="mensagem" type="text" class="validate">
+          <label for="mensagem">Mensagem</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <a class="waves-effect waves-light btn" id="enviar">Enviar</a>
+
+</form>      
+
+  <div id="escolha" class = "row" >
+       <div class ="col s12 m3" style="margin-left: 5%">
+       <br><br><br><br>
+       <a href="https://www.facebook.com/peludinhosufpa/" target="_blank"><img class="circle responsive-img" id="imagemEscolha" src="static/img/Facebook-96.png"></a>
+       </div>      
+      
+       <div class ="col s12 m3">
+       <br><br><br><br>
+       <a href="https://www.instagram.com/projetopeludinhosufpa/?hl=pt" target="_blank"><img class="circle responsive-img" id="imagemEscolha" src="static/img/Instragram-96.png" ></a>
+       </div>
+
+       <div class ="col s12 m3">
+       <br><br><br><br>
+
+       <img class="circle responsive-img" id="imagemEscolha" src="static/img/Message-96.png" >
+       <h6>projetopeludinhosufpa@gmail.com</h6>
+       </div>   
+       </div>    
+ 
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31907.9471695473!2d-48.46538118286559!3d-1.4766194927226635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92a48d94cc1263ff%3A0x1f6e35bc3b41ab9e!2sUniversidade+Federal+do+Par%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1477448747974" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>    
+      
+
+  
+
+ 
+  </div>
+
+  <br>
+  <br>
+  
+
+
+ <footer class="page-footer light-blue lighten-2" style="margin-top: -6px">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre o site</h5>
+          <p class="grey-text text-lighten-4">Site desenvolvido para o projeto Peludinhos com intuito de mostrar o objetivo do trabalho, mostrar aos usuários os animais disponiveis para adoção e arrecadações de doações</p>
+
+
+        </div>
+              </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+     <a class="white-text" href="https://www.facebook.com/getacesupa/" target="">Feito pelo Grupo de Estudo em Tecnologia Assistiva (GETA) - CESUPA</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    
+    
+  <script src="static/js/materialize.js"></script>
+  <script src="static/js/init.js"></script>
+
+  <script type="text/javascript">
+
+    $( "#enviar" ).click(function() {
+      var nome = $("#nome").val();
+      var telefone = $("#telefone").val();
+      var mensagem = $("#mensagem").val();
+       $.ajax({
+        type: "POST",
+        url: "https://docs.google.com/forms/d/e/1FAIpQLScqFFdLSWcbeQC7mUemP1gD0UEkVbzKu-jsWC9-VsmBGlFZYg/formResponse",
+        data: {
+          "entry.796698051":nome,"entry.943308848":telefone, "entry.1650173457":mensagem
+        },
+        success: function() {
+          alert("Mensagem enviada");
+          
+        },
+        dataType: "xml"
+      });
+    });
+
+
+   
+  </script>
+
+  </body>
+</html>
+
